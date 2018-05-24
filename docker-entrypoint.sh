@@ -4,12 +4,6 @@ set -e
 COMMANDS="debug help logtail show stop adduser fg kill quit run wait console foreground logreopen reload shell status"
 START="start restart"
 
-#create the Maildir folder structure
-mkdir -p /var/local/privacyforum/var/naaya-mail-queue/new
-mkdir -p /var/local/privacyforum/var/naaya-mail-queue/cur
-mkdir -p /var/local/privacyforum/var/naaya-mail-queue/tmp
-chown 500:500 -R /var/local/privacyforum/var/naaya-mail-queue
-
 if [ ! -z "$CRONTAB" ]; then
   sed -i -e "s/LINKCHECKER_USER/$LINKCHECKER_USER/g" crontab.cfg
   sed -i -e "s/LINKCHECKER_PASSWORD/$LINKCHECKER_PASSWORD/g" crontab.cfg
